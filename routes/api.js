@@ -16,14 +16,29 @@ function apiRoutes(db){
   });
 
   router.get('/dataset/2', function(req, res, next) {
-    //implementar
-    res.status(500).json({"error":"not implemented"});
+    sleepDataSet.find({"group":2}).toArray(function(err, docs){
+      if(err) throw err;
+      res.status(200).json(docs);
+    })
   });
 
   router.get('/dataset/1', function(req, res, next) {
+    sleepDataSet.find({"group":1}).toArray(function(err, docs){
+      if(err) throw err;
+      res.status(200).json(docs);
+    })
+  });
+
+
+  /*router.get('/dataset/2', function(req, res, next) {
     //implementar
     res.status(500).json({"error":"not implemented"});
-  });
+  });*/
+
+  /*router.get('/dataset/1', function(req, res, next) {
+    //implementar
+    res.status(500).json({"error":"not implemented"});
+  });*/
 
   router.get('/dataset/person/:id', function(req, res, next) {
     //implementar
